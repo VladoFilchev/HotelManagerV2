@@ -12,5 +12,4 @@ public class Client extends Person{
     public Client(String firstName, String lastName, int age, String phoneNumber) {
         super(firstName, lastName, age, phoneNumber);
     }
-
 }
