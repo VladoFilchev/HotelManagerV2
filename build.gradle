@@ -3,6 +3,7 @@ plugins {
     id 'application'
     id 'org.javamodularity.moduleplugin' version '1.8.12'
     id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.0'
     id 'org.beryx.jlink' version '2.25.0'
 }
 
@@ -14,39 +15,63 @@ repositories {
 }
 
 ext {
-    junitVersion = '5.9.2'
+    junitVersion = '5.10.2'
 }
 
-sourceCompatibility = '19'
-targetCompatibility = '19'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)  // Or the version you are using
+    }
+}
 
-tasks.withType(JavaCompile).configureEach {
+sourceCompatibility = '17'  // Updated to 17
+targetCompatibility = '17'  // Updated to 17
+
+tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
 application {
-    mainModule = 'com.example.hotelmanager'
-    mainClass = 'com.example.hotelmanager.HelloApplication'
+    mainModule = 'com.example.myhotels'
+    mainClass = 'com.example.myhotels.HelloApplication'
 }
 
 javafx {
-    version = '19.0.2'
-    modules = ['javafx.controls', 'javafx.fxml']
+    version = '17.0.6'  // Use JavaFX version compatible with Java 17
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.web', 'javafx.swing', 'javafx.media']
 }
 
 dependencies {
-    implementation('org.controlsfx:controlsfx:11.1.2')
+    implementation('org.controlsfx:controlsfx:11.2.1')
     implementation('com.dlsc.formsfx:formsfx-core:11.6.0') {
+        exclude(group: 'org.openjfx')
+    }
+    implementation('net.synedra:validatorfx:0.5.0') {
         exclude(group: 'org.openjfx')
     }
     implementation('org.kordamp.ikonli:ikonli-javafx:12.3.1')
     implementation('org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0')
-    implementation 'org.projectlombok:lombok:1.18.26'
-    implementation 'org.projectlombok:lombok:1.18.26'
-    implementation 'org.projectlombok:lombok:1.18.26'
+    implementation('eu.hansolo:tilesfx:17.0.0') {
+        exclude(group: 'org.openjfx')
+    }
+    implementation('com.github.almasb:fxgl:17.3') {
+        exclude(group: 'org.openjfx')
+        exclude(group: 'org.jetbrains.kotlin')
+    }
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.0"
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    implementation 'org.projectlombok:lombok:1.18.26'  // Add Lombok dependency
+    compileOnly 'org.projectlombok:lombok:1.18.26'    // To mark Lombok as a compile-only dependency
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'  // For annotation processing
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "17"  // Updated to 17
+    }
 }
 
 test {
@@ -59,6 +84,9 @@ jlink {
     launcher {
         name = 'app'
     }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.annotationProcessorPath = configurations.annotationProcessor
 }
 
 jlinkZip {

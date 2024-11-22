@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class LoginScreenController {
     private ControllerServices controllerServices;
-    private final LoggedInUser loggedInUser;
+    //private final LoggedInUser loggedInUser;
     private FXMLLoader loader;
     @FXML
     private Button loginButton;
@@ -31,23 +31,24 @@ public class LoginScreenController {
     @FXML
     private TextField usernameField;
 
-    public LoginScreenController(LoggedInUser loggedInUser) throws IOException {
-        this.loggedInUser = loggedInUser;
+    public LoginScreenController() {
+
     }
 
-    public void loadDashboard(Stage stage) throws IOException {
-
-       loader = controllerServices.getMainScene(loggedInUser, loader);
-
-        Parent dashboard = loader.load();
-        Scene scene = new Scene(dashboard);
-        stage.setScene(scene);
-        stage.show();
-        // Load the FXML and set it as the root of the scene
-    }
+//    public void loadDashboard(Stage stage) throws IOException {
+//
+//       loader = controllerServices.getMainScene(loggedInUser);
+//
+//        Parent dashboard = loader.load();
+//        Scene scene = new Scene(dashboard);
+//        stage.setScene(scene);
+//        stage.show();
+//        // Load the FXML and set it as the root of the scene
+//    }
 
 
     public void handleLogin(ActionEvent actionEvent) {
+
     }
 }
 
