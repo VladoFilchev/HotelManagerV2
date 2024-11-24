@@ -6,11 +6,9 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class Manager extends Employee{
-    private final int accessLevel = 1;
-    private UserType employeePosition=UserType.ADMIN;
+public class Manager extends LoggedInUser {
 
     public Manager(String firstName, String lastName, int age, String phoneNumber, int id, String password,String username) {
-        super(firstName, lastName, age, phoneNumber, id, password,username);
+        super(firstName, lastName, age, phoneNumber, id, password,username,UserType.MANAGER);
     }
 }

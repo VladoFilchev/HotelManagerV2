@@ -7,6 +7,7 @@ module com.example.hotelmanager {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires lombok;
+    requires com.fasterxml.jackson.databind;
     requires java.sql;
 
     opens com.example.hotelmanager to javafx.fxml;

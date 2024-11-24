@@ -10,10 +10,7 @@ public class Person {
     protected int age;
     protected String phoneNumber;
 
-    public Person(String firstName, String lastName, int age, String phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.phoneNumber = phoneNumber;
+    public Person() {
+
     }
 }

@@ -6,10 +6,9 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class Receptionist extends Employee {
-    private final UserType employeePosition= UserType.USER;
-    public Receptionist(String firstName, String lastName, int age, String phoneNumber, int id,String password,String username) {
-        super(firstName, lastName, age, phoneNumber, id, password,username);
+public class Receptionist extends LoggedInUser {
+    public Receptionist(String firstName, String lastName, int age, String phoneNumber, int id,String password,String username,UserType userType) {
+        super(firstName, lastName, age, phoneNumber, id, password,username,UserType.RECEPTIONIST);
 
     }
 }

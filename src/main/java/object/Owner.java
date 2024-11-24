@@ -8,13 +8,11 @@ import java.util.List;
 
 @Setter
 @Getter
-public class Owner extends Employee {
-    private final int accessLevel = 2;
+public class Owner extends LoggedInUser {
     private List<Hotel> hotels;
-    private final UserType employeePosition=UserType.ADMIN;
 
     public Owner(String firstName, String lastName, int age, String phoneNumber, int id, String password, List<Hotel> hotels,String username) {
-        super(firstName, lastName, age, phoneNumber, id, password,username);
+        super(firstName, lastName, age, phoneNumber, id, password,username,UserType.OWNER);
         this.hotels = hotels;
 
     }
