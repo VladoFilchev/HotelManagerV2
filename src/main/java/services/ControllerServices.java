@@ -1,6 +1,7 @@
 package services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import data.AdminUserDAO;
 import data.ManagerDAO;
 import data.OwnerDAO;
 import data.ReceptionistDAO;
@@ -12,12 +13,14 @@ import javafx.scene.Scene;
 import java.io.IOException;
 
 public class ControllerServices {
-    private OwnerDAO ownerDAO=new OwnerDAO();
-    private ManagerDAO managerDAO=new ManagerDAO();
-    private ReceptionistDAO receptionistDAO=new ReceptionistDAO();
+    private OwnerDAO ownerDAO = new OwnerDAO();
+    private ManagerDAO managerDAO = new ManagerDAO();
+    private ReceptionistDAO receptionistDAO = new ReceptionistDAO();
+    private AdminUserDAO adminUserDAO = new AdminUserDAO();
     private final String ownerMenu = "/com/example/hotelmanager/screens/OwnerMenuScreen.fxml";
     private final String managerMenu = "/com/example/hotelmanager/screens/ManagerMenuScreen.fxml";
     private final String receptionistMenu = "/com/example/hotelmanager/screens/ReceptionistMenuScreen.fxml";
+    private final String adminMenu = "/com/example/hotelmanager/screens/AdminMenuScreen.fxml";
 
     public Scene getMainScene(UserType userType) {
 
@@ -28,6 +31,7 @@ public class ControllerServices {
             case OWNER -> fxmlFile = ownerMenu;
             case MANAGER -> fxmlFile = managerMenu;
             case RECEPTIONIST -> fxmlFile = receptionistMenu;
+            case ADMIN -> fxmlFile = adminMenu;
             default -> throw new IllegalStateException("Unexpected access level for ADMIN: " + userType);
         }
 
@@ -49,6 +53,8 @@ public class ControllerServices {
             return managerDAO.authenticateUser(username, password);
         } else if (userType == UserType.RECEPTIONIST) {
             return receptionistDAO.authenticateUser(username, password);
+        } else if (userType == UserType.ADMIN) {
+            return adminUserDAO.authenticateUser(username, password);
         } else {
             return false;
         }

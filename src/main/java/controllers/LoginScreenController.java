@@ -51,22 +51,27 @@ public class LoginScreenController {
             String password = passwordField.getText();
             UserType userType = typeBox.getValue();
 
-
-            if (!controllerServices.verifyLogin(username, password, userType)) {
-                loginText.setText("username or password is incorrect");
-                passwordField.setText("");
+            if (typeBox.getValue() == null) {
+                loginText.setText("Please select a user type");
             } else {
-               Scene scene = controllerServices.getMainScene(userType);
 
-                if (scene != null) {
-                    Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                    stage.setScene(scene); // Switch to the new scene
-                    stage.show(); // Display the stage with the new scene
+
+                if (!controllerServices.verifyLogin(username, password, userType)) {
+                    loginText.setText("username or password is incorrect");
+                    passwordField.setText("");
                 } else {
-                    loginText.setText("Error loading the scene.");
-                }
-            }
+                    Scene scene = controllerServices.getMainScene(userType);
 
+                    if (scene != null) {
+                        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                        stage.setScene(scene); // Switch to the new scene
+                        stage.show(); // Display the stage with the new scene
+                    } else {
+                        loginText.setText("Error loading the scene.");
+                    }
+                }
+
+            }
         }
     }
 }
