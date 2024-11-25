@@ -20,6 +20,7 @@ ext {
 
 java {
     toolchain {
+        modularity.inferModulePath = true;
         languageVersion = JavaLanguageVersion.of(17)  // Or the version you are using
     }
 }
@@ -32,8 +33,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'com.example.myhotels'
-    mainClass = 'com.example.myhotels.HelloApplication'
+    mainModule = 'com.example.hotelmanager'
+    mainClass = 'com.example.hotelmanager.HelloApplication'
 }
 
 javafx {
@@ -43,6 +44,8 @@ javafx {
 
 dependencies {
     implementation('org.controlsfx:controlsfx:11.2.1')
+    implementation 'org.openjfx:javafx-controls:17.0.6'
+    implementation 'org.openjfx:javafx-fxml:17.0.6'
     implementation('com.dlsc.formsfx:formsfx-core:11.6.0') {
         exclude(group: 'org.openjfx')
     }
