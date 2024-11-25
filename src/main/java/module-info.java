@@ -9,6 +9,7 @@ module com.example.hotelmanager {
     requires lombok;
     requires com.fasterxml.jackson.databind;
     requires java.sql;
+    requires java.desktop;
 
     opens com.example.hotelmanager to javafx.fxml;
     exports com.example.hotelmanager;

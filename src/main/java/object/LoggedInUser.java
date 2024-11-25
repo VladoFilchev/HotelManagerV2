@@ -17,7 +17,7 @@ public class LoggedInUser extends Person  {
         super();
         this.id = id;
         this.password = password;
-        this.username=username;
+        this.username = username;
         this.userType = userType;
     }
 }
