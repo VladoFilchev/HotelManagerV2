@@ -20,13 +20,10 @@ ext {
 
 java {
     toolchain {
-        modularity.inferModulePath = true;
         languageVersion = JavaLanguageVersion.of(17)  // Or the version you are using
     }
 }
 
-sourceCompatibility = '17'  // Updated to 17
-targetCompatibility = '17'  // Updated to 17
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -44,8 +41,8 @@ javafx {
 
 dependencies {
     implementation('org.controlsfx:controlsfx:11.2.1')
-    implementation 'org.openjfx:javafx-controls:17.0.6'
-    implementation 'org.openjfx:javafx-fxml:17.0.6'
+    implementation 'org.openjfx:javafx-controls'
+    implementation 'org.openjfx:javafx-fxml'
     implementation('com.dlsc.formsfx:formsfx-core:11.6.0') {
         exclude(group: 'org.openjfx')
     }
