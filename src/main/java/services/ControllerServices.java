@@ -9,8 +9,12 @@ import enums.UserType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import object.Hotel;
+import object.Owner;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
 
 public class ControllerServices {
     private OwnerDAO ownerDAO = new OwnerDAO();
@@ -58,5 +62,10 @@ public class ControllerServices {
         } else {
             return false;
         }
+    }
+
+    public Owner createOwner(String firstName, String lastName, LocalDate dateOfBirth, String phoneNumber, String username, String password, List<Hotel> hotelList) {
+
+        return new Owner(firstName,lastName,dateOfBirth,phoneNumber,0,password,hotelList,username);
     }
 }

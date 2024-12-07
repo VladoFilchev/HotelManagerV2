@@ -13,7 +13,7 @@
 <VBox fx:id="root" alignment="CENTER" prefHeight="492.0" prefWidth="300.0" spacing="30.0" stylesheets="@../CSS/LoginCss.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginScreenController">
    <VBox prefHeight="200.0" prefWidth="100.0">
       <children>
-          <Label prefHeight="47.0" prefWidth="306.0" styleClass="title-label" text="HOTEL MANAGER" />
+          <Label prefHeight="47.0" prefWidth="306.0" styleClass="title-label" text="HOTEL MANAGER" textAlignment="CENTER" />
       </children>
    </VBox>
 

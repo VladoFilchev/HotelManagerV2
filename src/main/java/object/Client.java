@@ -12,6 +12,6 @@ public class Client extends Person{
   private boolean isStaying=false;
 
     public Client(String firstName, String lastName, LocalDate DOB, String phoneNumber) {
-        super(firstName, lastName, DOB, phoneNumber);;
+        super(firstName, lastName, DOB, phoneNumber);
     }
 }

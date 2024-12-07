@@ -74,6 +74,8 @@ public class PersonFormController {
             System.out.println(errorMessage.toString());
             showErrorMessage(errorMessage.toString());
             return false;
+        }else{
+            errorLabel.setText("Client has been registered successfully.");
         }
 
         return true;
