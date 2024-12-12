@@ -1,6 +1,5 @@
 package services;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import data.AdminUserDAO;
 import data.ManagerDAO;
 import data.OwnerDAO;
@@ -9,14 +8,10 @@ import enums.UserType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import object.Hotel;
-import object.Owner;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.List;
 
-public class ControllerServices {
+public class LoginControllerServices {
     private OwnerDAO ownerDAO = new OwnerDAO();
     private ManagerDAO managerDAO = new ManagerDAO();
     private ReceptionistDAO receptionistDAO = new ReceptionistDAO();
@@ -64,8 +59,4 @@ public class ControllerServices {
         }
     }
 
-    public Owner createOwner(String firstName, String lastName, LocalDate dateOfBirth, String phoneNumber, String username, String password, List<Hotel> hotelList) {
-
-        return new Owner(firstName,lastName,dateOfBirth,phoneNumber,0,password,hotelList,username);
-    }
 }

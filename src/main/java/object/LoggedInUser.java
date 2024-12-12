@@ -15,11 +15,12 @@ public class LoggedInUser extends Person  {
     private String username;
     private String password;
 
-    public LoggedInUser(String firstName, String lastName, LocalDate localDate, String phoneNumber, int id, String password, String username, UserType userType) {
-        super();
+    public LoggedInUser(String firstName, String lastName, LocalDate dateOfBirth, String phoneNumber, int id, String password, String username, UserType userType) {
+        super(firstName, lastName, dateOfBirth, phoneNumber);
         this.id = id;
         this.password = password;
         this.username = username;
         this.userType = userType;
     }
+
 }

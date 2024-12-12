@@ -1,9 +1,8 @@
 package data;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import object.Owner;
+
+import java.sql.*;
 
 public class OwnerDAO {
 
@@ -17,6 +16,28 @@ public class OwnerDAO {
 
             ResultSet rs = stmt.executeQuery();
             return rs.next();  // Returns true if user exists with matching credentials
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean insertOwner(Owner owner) {
+        String sql = "INSERT INTO owners (first_name, last_name, dateofbirth, phone_number, username, password, usertype) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection conn = DatabaseConnection.connect(); // Assuming you have a DatabaseConnection class
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, owner.getFirstName());
+            pstmt.setString(2, owner.getLastName());
+            pstmt.setDate(3, Date.valueOf(owner.getDateOfBirth()));
+            pstmt.setString(4, owner.getPhoneNumber());
+            pstmt.setString(5, owner.getUsername());
+            pstmt.setString(6, owner.getPassword());
+            pstmt.setString(7, owner.getUserType().toString());
+
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows > 0;
+
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

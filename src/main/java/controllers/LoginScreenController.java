@@ -10,13 +10,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import services.ControllerServices;
+import services.LoginControllerServices;
 
 import java.io.IOException;
 
 public class LoginScreenController {
 
-    private final ControllerServices controllerServices = new ControllerServices();
+    private final LoginControllerServices loginControllerServices = new LoginControllerServices();
 
     private FXMLLoader loader;
     @FXML
@@ -56,11 +56,11 @@ public class LoginScreenController {
             } else {
 
 
-                if (!controllerServices.verifyLogin(username, password, userType)) {
+                if (!loginControllerServices.verifyLogin(username, password, userType)) {
                     loginText.setText("username or password is incorrect");
                     passwordField.setText("");
                 } else {
-                    Scene scene = controllerServices.getMainScene(userType);
+                    Scene scene = loginControllerServices.getMainScene(userType);
 
                     if (scene != null) {
                         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

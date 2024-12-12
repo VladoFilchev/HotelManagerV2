@@ -9,15 +9,13 @@ import java.time.LocalDate;
 public class Person {
     protected String firstName;
     protected String lastName;
-    protected LocalDate DOB;
+    protected LocalDate dateOfBirth;
     protected String phoneNumber;
 
-    public Person() {
-    }
-    public Person(String firstName, String lastName, LocalDate DOB, String phoneNumber) {
+    public Person(String firstName, String lastName, LocalDate dateOfBirth, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.DOB = DOB;
+        this.dateOfBirth = dateOfBirth;
         this.phoneNumber = phoneNumber;
 
     }
