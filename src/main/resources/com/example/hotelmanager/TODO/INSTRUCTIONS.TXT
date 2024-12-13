@@ -1,0 +1,30 @@
+Create Admin Menu:
+1.Create Owners //OK
+2.Access all other menus //IN PROGRESS
+
+VLADIMIR
+
+
+Create Owner Menu :
+1.Create Manager Menu (IN MAIN MENU + HOTEL CREATION MENU)
+2.Create Hotel With Manager From Owner
+3.Queries
+
+SVETOSLAV
+
+Create Manager Menu:
+1.Create Receptionists
+
+SVETOSLAV
+
+Create Receptionists Menu:
+1.Create Clients
+2.Create Reservations (Reservations Number:ID,Reservation Type,Type Of End Of Reservation,Room Type...)
+
+VLADIMIR
+
+3.Extra Services (Seasonal,Type of service,services count)
+4.Client Rating(RANK UP, RANK DOWN)
+
+SVETOSLAV
+

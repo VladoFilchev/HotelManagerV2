@@ -33,7 +33,9 @@ public class OwnerDAO {
             pstmt.setString(4, owner.getPhoneNumber());
             pstmt.setString(5, owner.getUsername());
             pstmt.setString(6, owner.getPassword());
-            pstmt.setString(7, owner.getUserType().toString());
+
+            pstmt.setObject(7,owner.getUserType(),java.sql.Types.OTHER);
+           // pstmt.setString(7, owner.getUserType().toString());
 
             int affectedRows = pstmt.executeUpdate();
             return affectedRows > 0;
