@@ -6,9 +6,9 @@ VLADIMIR
 
 
 Create Owner Menu :
-1.Create Manager Menu (IN MAIN MENU + HOTEL CREATION MENU)
-2.Create Hotel With Manager From Owner
-3.Queries
+1.Create Manager Menu (IN MAIN MENU + HOTEL CREATION MENU) //IN PROGRESS
+2.Create Hotel With Manager From Owner //IN PROGRESS
+3.Queries //FUTURE
 
 SVETOSLAV
 

@@ -6,7 +6,7 @@
   </component>
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -17,7 +17,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="5b3ea4de-595d-4315-916f-20252a251494">
-      <console name="Connection" type="STANDARD" schema="" session="Main"><![CDATA[postgres=# ALTER USER postgres WITH PASSWORD 'postgre1234';]]></console>
+      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[postgres=# ALTER USER postgres WITH PASSWORD 'postgre';]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -28,6 +28,19 @@
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="5b3ea4de-595d-4315-916f-20252a251494" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="5b3ea4de-595d-4315-916f-20252a251494" dataset="public.receptionists" active-filter-id="5e1010a8-c343-4595-bdd2-9bfd8cdee9e7">
+      <filter id="5e1010a8-c343-4595-bdd2-9bfd8cdee9e7" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="receptionist_id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="5b3ea4de-595d-4315-916f-20252a251494" dataset="public.managers" active-filter-id="c5e85c43-6648-44ce-bdec-508b7ff398ba">
+      <filter id="c5e85c43-6648-44ce-bdec-508b7ff398ba" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND" />
+    </filter-actions>
+    <filter-actions connection-id="5b3ea4de-595d-4315-916f-20252a251494" dataset="public.owners" active-filter-id="a9472394-ebd9-4ff6-bd9d-d485f66c3b98">
+      <filter id="a9472394-ebd9-4ff6-bd9d-d485f66c3b98" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND" />
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -44,19 +57,19 @@
           <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
-          <database-version value="9999.0" />
+          <database-version value="17.2" />
           <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
           <host value="localhost" />
-          <port value="5432" />
-          <database value="postgres" />
+          <port value="5433" />
+          <database value="hmsbase" />
           <tns-folder value="" />
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
-          <user value="postgre" />
-          <deprecated-pwd value="" />
+          <user value="postgres" />
+          <deprecated-pwd value="cG9zdGdyZQ==" />
         </database>
         <properties>
           <auto-commit value="false" />

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="500" prefWidth="500.0" spacing="20" stylesheets="@../CSS/hotel_creation.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OwnerCreationController">
+
+    <Label text="Create Hotel" />
+
+    <GridPane alignment="CENTER" hgap="10" vgap="15">
+        <Label text="Hotel Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="firstNameField" promptText="Enter name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+      <VBox.margin>
+         <Insets bottom="100.0" top="100.0" />
+      </VBox.margin>
+    </GridPane>
+
+    <Button fx:id="createHotelButton" onAction="#onClick" text="Create Hotel" />
+    <Label fx:id="feedbackLabel" style="-fx-font-size: 14px;"/>
+</VBox>

@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private static final String DB_URL = "jdbc:postgresql://localhost:5432/hmsbase";
+    private static final String DB_URL = "jdbc:postgresql://localhost:5433/hmsbase";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "1234";
+    private static final String PASSWORD = "postgre";
 
     // Method to establish a database connection
     public static Connection connect() {

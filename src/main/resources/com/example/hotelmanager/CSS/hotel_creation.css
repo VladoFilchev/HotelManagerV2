@@ -1,0 +1,74 @@
+/* Set the background color of the main scene */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #E8F0FE, #FFFFFF);
+    -fx-padding: 20px;
+}
+
+/* Styling the VBox (main container) */
+.vbox {
+    -fx-alignment: top-center;
+    -fx-spacing: 20px;
+    -fx-padding: 20px;
+}
+
+/* Styling the heading Label */
+.label {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4A4A4A;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.5, 0, 2);
+}
+
+/* Styling GridPane labels */
+.grid-pane .label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555555;
+}
+
+/* Styling TextFields and PasswordFields */
+.text-field{
+    -fx-font-size: 14px;
+    -fx-padding: 8px;
+    -fx-border-color: #D1D1D1;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0.5, 0, 1);
+}
+
+/* Focused state for text inputs */
+.text-field:focused{
+    -fx-border-color: #4A90E2;
+    -fx-background-color: #F3F9FF;
+    -fx-effect: dropshadow(gaussian, rgba(74,144,226,0.5), 8, 0.6, 0, 2);
+}
+
+/* Styling buttons */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E8E8E8);
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-border-color: #4A90E2;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0.5, 0, 1);
+    -fx-cursor: hand;
+}
+
+/* Button hover effect */
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #4A90E2, #357ABD);
+    -fx-text-fill: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(74,144,226,0.5), 8, 0.6, 0, 2);
+}
+
+/* Button pressed (active) effect */
+.button:pressed {
+    -fx-background-color: #357ABD;
+    -fx-text-fill: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.5, 0, 2);
+}

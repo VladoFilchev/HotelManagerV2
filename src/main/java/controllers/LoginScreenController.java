@@ -65,6 +65,7 @@ public class LoginScreenController {
                     if (scene != null) {
                         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                         stage.setScene(scene); // Switch to the new scene
+                        stage.setTitle("HMS");
                         stage.show(); // Display the stage with the new scene
                     } else {
                         loginText.setText("Error loading the scene.");
