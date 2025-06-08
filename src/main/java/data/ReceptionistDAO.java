@@ -1,5 +1,9 @@
 package data;
 
+import enums.UserType;
+import object.Manager;
+import object.Receptionist;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,5 +25,30 @@ public class ReceptionistDAO {
             e.printStackTrace();
             return false;
         }
+    }
+    public Receptionist getLoggedInUser(String username) {
+        String query = "SELECT * FROM receptionists WHERE username = ?";
+        try (Connection conn = DatabaseConnection.connect();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return new Receptionist(
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getDate("date_of_birth").toLocalDate(),
+                        rs.getString("phone_number"),
+                        rs.getInt("id"),
+                        rs.getString("password"),
+                        rs.getString("username"),
+                        UserType.RECEPTIONIST
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

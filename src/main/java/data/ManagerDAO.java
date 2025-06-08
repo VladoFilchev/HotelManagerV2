@@ -1,5 +1,6 @@
 package data;
 
+import enums.UserType;
 import object.Manager;
 
 import java.sql.*;
@@ -45,4 +46,30 @@ public class ManagerDAO {
             return false;
         }
     }
+
+    public Manager getLoggedInUser(String username) {
+        String query = "SELECT * FROM managers WHERE username = ?";
+        try (Connection conn = DatabaseConnection.connect();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return new Manager(
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getDate("date_of_birth").toLocalDate(),
+                        rs.getString("phone_number"),
+                        rs.getInt("id"),
+                        rs.getString("password"),
+                        rs.getString("username")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

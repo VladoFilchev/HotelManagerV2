@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import object.CurrentSession;
+import object.LoggedInUser;
 import services.LoginControllerServices;
 
 import java.io.IOException;
@@ -61,6 +63,9 @@ public class LoginScreenController {
                     passwordField.setText("");
                 } else {
                     Scene scene = loginControllerServices.getMainScene(userType);
+                    LoggedInUser currentUser = loginControllerServices.fetchUser(username, userType);
+                    CurrentSession.setLoggedInUser(currentUser);
+
 
                     if (scene != null) {
                         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -75,6 +80,9 @@ public class LoginScreenController {
             }
         }
     }
+
+
+
 }
 
 

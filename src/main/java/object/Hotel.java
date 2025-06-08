@@ -23,8 +23,7 @@ public class Hotel {
         this.hotelRoomsList = hotelRoomsList;
     }
 
-    public Hotel(String hotelName) {
-        this.hotelName = hotelName;
+    public Hotel() {
     }
 }
 

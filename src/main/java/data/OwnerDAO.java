@@ -1,8 +1,11 @@
 package data;
 
+import enums.UserType;
+import object.Manager;
 import object.Owner;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 public class OwnerDAO {
 
@@ -44,5 +47,37 @@ public class OwnerDAO {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public Owner getLoggedInUser(String username) {
+        String query = "SELECT * FROM owners WHERE username = ?";
+        try (Connection conn = DatabaseConnection.connect();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+
+                java.sql.Date dobDate = rs.getDate("dateofbirth");
+                LocalDate dob = dobDate != null ? dobDate.toLocalDate() : null;
+
+                return new Owner(
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        dob,
+                        rs.getString("phone_number"),
+                        rs.getInt("owner_id"),
+                        rs.getString("password"),
+                        null,
+                        rs.getString("username"),
+                        UserType.OWNER
+
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

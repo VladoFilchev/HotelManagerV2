@@ -4,26 +4,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="500" prefWidth="500.0" spacing="20" stylesheets="@../CSS/hotel_creation.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OwnerCreationController">
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.HotelCreationController"
+      spacing="15" alignment="TOP_CENTER"
+      style="-fx-padding: 20; -fx-background-color: #F5F5F5;" prefWidth="600">
 
-    <Label text="Create Hotel" />
+    <Label text="Create New Hotel" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
 
-    <GridPane alignment="CENTER" hgap="10" vgap="15">
-        <Label text="Hotel Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <TextField fx:id="firstNameField" promptText="Enter name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-      <columnConstraints>
-         <ColumnConstraints />
-         <ColumnConstraints />
-      </columnConstraints>
-      <rowConstraints>
-         <RowConstraints />
-         <RowConstraints />
-      </rowConstraints>
-      <VBox.margin>
-         <Insets bottom="100.0" top="100.0" />
-      </VBox.margin>
-    </GridPane>
+    <TextField fx:id="hotelNameField" promptText="Enter hotel name" maxWidth="400"/>
 
-    <Button fx:id="createHotelButton" onAction="#onClick" text="Create Hotel" />
-    <Label fx:id="feedbackLabel" style="-fx-font-size: 14px;"/>
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Select Manager:"/>
+        <ComboBox fx:id="managerComboBox" prefWidth="300"/>
+    </HBox>
+
+    <Button text="Add Rooms" fx:id="addRoomButton"/>
+    <ListView fx:id="roomListView" prefHeight="150" maxWidth="500"/>
+
+    <Button text="Create Hotel" fx:id="createHotelButton" styleClass="button"/>
+    <Label fx:id="feedbackLabel" textFill="red"/>
 </VBox>
+

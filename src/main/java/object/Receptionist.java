@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Getter
 public class Receptionist extends LoggedInUser {
     public Receptionist(String firstName, String lastName, LocalDate dateOfBirth, String phoneNumber, int id, String password, String username, UserType userType) {
-        super(firstName, lastName, dateOfBirth, phoneNumber, id, password,username,UserType.RECEPTIONIST);
+        super(firstName, lastName, dateOfBirth, phoneNumber, id, password,username,userType);
 
     }
 }

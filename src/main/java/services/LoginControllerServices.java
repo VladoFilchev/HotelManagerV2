@@ -8,6 +8,7 @@ import enums.UserType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import object.LoggedInUser;
 
 import java.io.IOException;
 
@@ -59,4 +60,14 @@ public class LoginControllerServices {
         }
     }
 
+    public LoggedInUser fetchUser(String username, UserType userType) {
+        return switch (userType) {
+            case OWNER -> ownerDAO.getLoggedInUser(username);
+            case MANAGER -> managerDAO.getLoggedInUser(username);
+            case RECEPTIONIST -> receptionistDAO.getLoggedInUser(username);
+            case ADMIN -> adminUserDAO.getLoggedInUser(username);
+        };
+
+
+    }
 }
