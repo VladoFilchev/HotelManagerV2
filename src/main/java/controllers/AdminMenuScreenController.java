@@ -32,10 +32,11 @@ public class AdminMenuScreenController {
     public void openCreateOwner(ActionEvent event) {
         Scene scene = adminControllerServices.getMenuScene();
 
-        if(scene != null) {
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene); // Switch to the new scene
-            stage.show(); // Display the stage with the new scene
+            if (scene != null) {
+                Stage newStage = new Stage();
+                newStage.setScene(scene);
+                newStage.setTitle("HMS"); // Optional: set a title for the new window
+                newStage.show(); // Show the new window
         }
 
     }

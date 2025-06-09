@@ -1,4 +1,5 @@
 package controllers;
+import data.HotelDAO;
 import enums.RoomStatus;
 import enums.RoomType;
 import javafx.fxml.FXML;
@@ -21,12 +22,13 @@ public class HotelCreationController {
     @FXML private ListView<String> roomListView;
     @FXML private Label feedbackLabel;
 
+    HotelDAO hotelDAO = new HotelDAO();
+
     private List<Room> hotelRooms = new ArrayList<>();
 
     @FXML
     public void initialize() {
         managerComboBox.getItems().addAll(UserService.getAllManagers());
-
         addRoomButton.setOnAction(e -> addRoomDialog());
         createHotelButton.setOnAction(e -> createHotel());
     }
@@ -58,6 +60,7 @@ public class HotelCreationController {
                 Room room = new Room();
                 room.setRoomNumber(Integer.parseInt(roomNumber.getText()));
                 room.setRoomType(typeCombo.getValue());
+                room.setPrice(typeCombo.getValue().getPricePerNight());
                 room.setRoomStatus(statusCombo.getValue());
                 return room;
             }
@@ -66,7 +69,7 @@ public class HotelCreationController {
 
         dialog.showAndWait().ifPresent(room -> {
             hotelRooms.add(room);
-            roomListView.getItems().add("Room " + room.getRoomNumber() + " - " + room.getRoomType());
+            roomListView.getItems().add("Room " + room.getRoomNumber() + " - " + room.getRoomType() + " - " +room.getRoomType().getPricePerNight() +"$");
         });
     }
 
@@ -76,6 +79,11 @@ public class HotelCreationController {
 
         if (name.isEmpty() || selectedManager == null || hotelRooms.isEmpty()) {
             feedbackLabel.setText("Please fill all fields and add at least one room.");
+            return;
+        }
+
+        if(hotelDAO.authenticateUser(name)) {
+            feedbackLabel.setText("Hotel with this name already exists.");
             return;
         }
 

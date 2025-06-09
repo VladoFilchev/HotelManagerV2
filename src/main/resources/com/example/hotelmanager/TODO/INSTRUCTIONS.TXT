@@ -1,18 +1,14 @@
-Create Admin Menu:
-1.Create Owners //DONE
-2.Access all other menus //IN PROGRESS
-
 VLADIMIR
-Owner Menu :
-1.Create Manager Menu (IN MAIN MENU + HOTEL CREATION MENU) //DONE
-2.Create Hotel With Manager From Owner //DONE
-3.Create Hotel Rooms //DONE
+1.Create Owners //DONE
+2.Create Owner Menu (IN MAIN MENU + HOTEL CREATION MENU) //DONE
+3.Create Hotel With Manager From Owner //DONE
+4.Create Hotel Rooms //DONE
+5.Create Rooms assigned to Hotels //DONE
 
 SVETOSLAV
 Create Manager Menu:
 1.Create Receptionists
 
-SVETOSLAV
 Create Receptionists Menu:
 1.Create Clients
 2.Create Reservations (Reservations Number:ID,Reservation Type,Type Of End Of Reservation,Room Type...)

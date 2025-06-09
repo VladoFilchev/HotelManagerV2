@@ -15,12 +15,12 @@ public class Room {
     private RoomStatus roomStatus;
     private int price;
 
-    public Room(int hotelId, int roomNumber, RoomType roomType, RoomStatus roomStatus, int price) {
+    public Room(int hotelId, int roomNumber, RoomType roomType, RoomStatus roomStatus) {
         this.hotelId = hotelId;
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.roomStatus = roomStatus;
-        this.price = price;
+        this.price = roomType.getPricePerNight();
     }
 
 

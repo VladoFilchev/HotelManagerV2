@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 
 public class HotelService {
     public static boolean saveHotel(Hotel hotel) {
-        try (Connection conn = DatabaseConnection.connect();) {
+        try (Connection conn = DatabaseConnection.connect()) {
             String sql = "INSERT INTO hotels (name, owner_id, manager_id) VALUES (?, ?, ?) RETURNING hotel_id";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, hotel.getHotelName());

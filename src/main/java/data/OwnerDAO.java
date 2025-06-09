@@ -27,7 +27,7 @@ public class OwnerDAO {
     public boolean insertOwner(Owner owner) {
         String sql = "INSERT INTO owners (first_name, last_name, dateofbirth, phone_number, username, password, usertype) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = DatabaseConnection.connect(); // Assuming you have a DatabaseConnection class
+        try (Connection conn = DatabaseConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, owner.getFirstName());

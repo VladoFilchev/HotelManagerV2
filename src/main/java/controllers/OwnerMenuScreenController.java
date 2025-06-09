@@ -38,10 +38,11 @@ public class OwnerMenuScreenController {
         setScene(scene, event);
     }
     private void setScene(Scene scene, ActionEvent event){
-        if(scene != null) {
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene); // Switch to the new scene
-            stage.show(); // Display the stage with the new scene
+        if (scene != null) {
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+            newStage.setTitle("HMS"); // Optional: set a title for the new window
+            newStage.show(); // Show the new window
         }
     }
 }
