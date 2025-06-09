@@ -4,6 +4,7 @@ import enums.UserType;
 import object.Manager;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 public class ManagerDAO {
 
@@ -56,12 +57,14 @@ public class ManagerDAO {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
+                java.sql.Date dobDate = rs.getDate("dateofbirth");
+                LocalDate dob = dobDate != null ? dobDate.toLocalDate() : null;
                 return new Manager(
                         rs.getString("first_name"),
                         rs.getString("last_name"),
-                        rs.getDate("date_of_birth").toLocalDate(),
+                        dob,
                         rs.getString("phone_number"),
-                        rs.getInt("id"),
+                        rs.getInt("manager_id"),
                         rs.getString("password"),
                         rs.getString("username")
                 );
