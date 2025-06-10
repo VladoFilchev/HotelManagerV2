@@ -11,7 +11,7 @@ public class HotelDAO {
     public void insertHotel(Hotel hotel) {
     }
 
-    public boolean authenticateUser(String username) {
+    public boolean authenticateHotel(String username) {
         String query = "SELECT * FROM hotels WHERE name = ?";
         try (Connection conn = DatabaseConnection.connect();
              PreparedStatement stmt = conn.prepareStatement(query)) {

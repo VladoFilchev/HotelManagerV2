@@ -3,7 +3,6 @@ VLADIMIR
 2.Create Owner Menu (IN MAIN MENU + HOTEL CREATION MENU) //DONE
 3.Create Hotel With Manager From Owner //DONE
 4.Create Hotel Rooms //DONE
-5.Create Rooms assigned to Hotels //DONE
 
 SVETOSLAV
 Create Manager Menu:

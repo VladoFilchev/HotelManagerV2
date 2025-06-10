@@ -82,7 +82,7 @@ public class HotelCreationController {
             return;
         }
 
-        if(hotelDAO.authenticateUser(name)) {
+        if(hotelDAO.authenticateHotel(name)) {
             feedbackLabel.setText("Hotel with this name already exists.");
             return;
         }
